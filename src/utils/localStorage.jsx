@@ -12,7 +12,7 @@ const employees = [
         active: true,
         newTask: false,
         completed: false,
-        failed: false
+        failed: false,
       },
       {
         taskTitle: "Client Follow-up",
@@ -22,7 +22,7 @@ const employees = [
         active: true,
         newTask: true,
         completed: false,
-        failed: false
+        failed: false,
       },
       {
         taskTitle: "Team Meeting Preparation",
@@ -32,9 +32,9 @@ const employees = [
         active: false,
         newTask: false,
         completed: true,
-        failed: false
-      }
-    ]
+        failed: false,
+      },
+    ],
   },
   {
     id: "E002",
@@ -43,13 +43,14 @@ const employees = [
     tasks: [
       {
         taskTitle: "Design Mockup Review",
-        taskDescription: "Review the latest design mockups for client approval.",
+        taskDescription:
+          "Review the latest design mockups for client approval.",
         taskDate: "2024-11-06",
         category: "Design",
         active: true,
         newTask: false,
         completed: false,
-        failed: false
+        failed: false,
       },
       {
         taskTitle: "Project Kickoff",
@@ -59,7 +60,7 @@ const employees = [
         active: false,
         newTask: true,
         completed: false,
-        failed: false
+        failed: false,
       },
       {
         taskTitle: "Budget Analysis",
@@ -69,7 +70,7 @@ const employees = [
         active: false,
         newTask: false,
         completed: true,
-        failed: false
+        failed: false,
       },
       {
         taskTitle: "System Testing",
@@ -79,9 +80,9 @@ const employees = [
         active: true,
         newTask: true,
         completed: false,
-        failed: false
-      }
-    ]
+        failed: false,
+      },
+    ],
   },
   {
     id: "E003",
@@ -96,7 +97,7 @@ const employees = [
         active: true,
         newTask: false,
         completed: false,
-        failed: false
+        failed: false,
       },
       {
         taskTitle: "Customer Support",
@@ -106,7 +107,7 @@ const employees = [
         active: false,
         newTask: true,
         completed: false,
-        failed: true
+        failed: true,
       },
       {
         taskTitle: "Inventory Check",
@@ -116,9 +117,9 @@ const employees = [
         active: true,
         newTask: false,
         completed: true,
-        failed: false
-      }
-    ]
+        failed: false,
+      },
+    ],
   },
   {
     id: "E004",
@@ -133,7 +134,7 @@ const employees = [
         active: false,
         newTask: false,
         completed: true,
-        failed: false
+        failed: false,
       },
       {
         taskTitle: "Weekly Report",
@@ -143,7 +144,7 @@ const employees = [
         active: true,
         newTask: true,
         completed: false,
-        failed: false
+        failed: false,
       },
       {
         taskTitle: "Technical Training",
@@ -153,7 +154,7 @@ const employees = [
         active: true,
         newTask: false,
         completed: false,
-        failed: false
+        failed: false,
       },
       {
         taskTitle: "Email Campaign Analysis",
@@ -163,9 +164,9 @@ const employees = [
         active: false,
         newTask: false,
         completed: true,
-        failed: false
-      }
-    ]
+        failed: false,
+      },
+    ],
   },
   {
     id: "E005",
@@ -180,7 +181,7 @@ const employees = [
         active: false,
         newTask: false,
         completed: true,
-        failed: false
+        failed: false,
       },
       {
         taskTitle: "Client Proposal Review",
@@ -190,7 +191,7 @@ const employees = [
         active: true,
         newTask: true,
         completed: false,
-        failed: false
+        failed: false,
       },
       {
         taskTitle: "Update CRM",
@@ -200,10 +201,10 @@ const employees = [
         active: true,
         newTask: false,
         completed: false,
-        failed: true
-      }
-    ]
-  }
+        failed: true,
+      },
+    ],
+  },
 ];
 
 const admin = [
@@ -211,6 +212,12 @@ const admin = [
     id: "A001",
     email: "admin@example.com",
     password: "123",
-    tasks: []
-  }
+    tasks: [],
+  },
 ];
+
+export const setLocalStorage = () => {
+  localStorage.setItem("employees", JSON.stringify(employees));
+};
+
+export const getLocalStorage = () => {};
