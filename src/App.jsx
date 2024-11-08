@@ -17,7 +17,7 @@ function App() {
     if (loggedInUser) {
       const userData = JSON.parse(loggedInUser);
       setUser(userData.role);
-      setLoggedInUserData(loggedInUser.data);
+      setLoggedInUserData(userData.data);
     }
   }, []);
 
