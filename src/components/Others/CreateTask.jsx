@@ -1,28 +1,42 @@
 import React, { useState } from "react";
 
 const CreateTask = () => {
-  const [taskTitle, settaskTitle] = useState("");
-  const [taskDescription, settaskDescription] = useState("");
-  const [taskDate, settaskDate] = useState("");
+  const [taskTitle, setTaskTitle] = useState("");
+  const [taskDescription, setTaskDescription] = useState("");
+  const [taskDate, setTaskDate] = useState("");
   const [assignTo, setAssignTo] = useState("");
   const [category, setCategory] = useState("");
 
-  const [task, setTask] = useState({});
+  const [newTask, setNewTask] = useState({});
 
   const submitHandler = (e) => {
     e.preventDefault();
-    setTask({
-      taskDate,
+    setNewTask({
       taskTitle,
       taskDescription,
+      taskDate,
       category,
       active: false,
       newTask: true,
+      failed: false,
       completed: false,
     });
 
-    const data = localStorage.getItem("employees");
-    
+    const data = JSON.parse(localStorage.getItem("employees"));
+
+    data.forEach((element) => {
+      if (assignTo == element.firstName) {
+        element.tasks.push(newTask);
+        console.log(element.tasks);
+        element.taskNumbers.newTask = element.taskNumbers.newTask + 1;
+      }
+    });
+
+    setTaskTitle("");
+    setTaskDescription("");
+    setTaskDate("");
+    setAssignTo("");
+    setCategory("");
   };
 
   return (
@@ -39,7 +53,7 @@ const CreateTask = () => {
             <input
               value={taskTitle}
               onChange={(e) => {
-                settaskTitle(e.target.value);
+                setTaskTitle(e.target.value);
               }}
               className="text-sm py-1 px-2 w-4/5 rounded outline-none bg-transparent border-[1px] border-gray-400 mb-4"
               type="text"
@@ -51,7 +65,7 @@ const CreateTask = () => {
             <input
               value={taskDate}
               onChange={(e) => {
-                settaskDate(e.target.value);
+                setTaskDate(e.target.value);
               }}
               className="text-sm py-1 px-2 w-4/5 rounded outline-none bg-transparent border-[1px] border-gray-400 mb-4"
               type="date"
@@ -88,7 +102,7 @@ const CreateTask = () => {
           <textarea
             value={taskDescription}
             onChange={(e) => {
-              settaskDescription(e.target.value);
+              setTaskDescription(e.target.value);
             }}
             className="w-full h-44 text-sm py-2 px-4 rounded outline-none bg-transparent border-[1px] border-gray-400"
             name=""
