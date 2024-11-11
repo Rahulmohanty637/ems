@@ -14,7 +14,7 @@ const AllTask = () => {
         <h5 className="w-1/5">Failed</h5>
       </div>
       <div className="h-full">
-        {userData.employees.map(function (element, index) {
+        {userData.map(function (element, index) {
           return (
             <div key={index} className="mb-2 py-2 px-4 flex justify-between rounded">
               <h3 className="text-lg font-medium w-1/5">{element.firstName}</h3>

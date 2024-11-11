@@ -34,6 +34,7 @@ const CreateTask = () => {
         element.taskNumbers.newTask = element.taskNumbers.newTask + 1;
       }
     });
+    console.log(data);
     setUserData(data);
 
     setTaskTitle("");
